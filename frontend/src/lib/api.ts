@@ -28,22 +28,22 @@ api.interceptors.response.use(
 
 // ── Auth ──────────────────────────────────────────────────────
 export const authApi = {
-  register: (data) => api.post('/auth/register', data),
-  login: (data) => api.post('/auth/login', data),
+  register: (data:any) => api.post('/auth/register', data),
+  login: (data: any) => api.post('/auth/login', data),
   me: () => api.get('/auth/me'),
 };
 
 // ── Upload ────────────────────────────────────────────────────
 export const uploadApi = {
-  upload: (formData, onProgress) =>
+  upload: (formData:any, onProgress: any) =>
     api.post('/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      onUploadProgress: (e) => onProgress?.(Math.round((e.loaded * 100) / e.total)),
+      onUploadProgress: (e) => onProgress?.(e.total ? Math.round((e.loaded * 100) / e.total) : 0),
     }),
   list: (page = 1) => api.get(`/upload?page=${page}`),
-  status: (fileId) => api.get(`/upload/${fileId}/status`),
-  download: (fileId) => api.get(`/upload/${fileId}/download`),
-  delete: (fileId) => api.delete(`/upload/${fileId}`),
+  status: (fileId:any) => api.get(`/upload/${fileId}/status`),
+  download: (fileId:any) => api.get(`/upload/${fileId}/download`),
+  delete: (fileId:any) => api.delete(`/upload/${fileId}`),
 };
 
 // ── Reports ───────────────────────────────────────────────────

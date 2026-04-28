@@ -175,6 +175,9 @@ export default function ReportPage() {
             )}
             {shareUrl ? 'Copy link' : 'Share'}
           </button>
+          <button
+            onClick={() => exportReport(reportId, 'csv')}
+            disabled={exporting}
             className="btn-secondary text-xs py-1.5 px-3"
             title="Export as CSV"
           >

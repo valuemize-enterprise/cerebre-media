@@ -60,7 +60,7 @@ export const FileUpload = ({ onUploadComplete }: FileUploadProps) => {
       const formData = new FormData();
       acceptedFiles.forEach((f) => formData.append('files', f));
 
-      const { data } = await uploadApi.upload(formData, (pct) => {
+      const { data } = await uploadApi.upload(formData, (pct:any) => {
         setFiles((prev) =>
           prev.map((f, i) =>
             i >= startIdx ? { ...f, progress: pct } : f

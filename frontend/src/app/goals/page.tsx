@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  GripVertical, Plus, Toggle, Trash2, ChevronDown,
+  GripVertical, Plus, Trash2, ChevronDown,
   ChevronUp, Zap, Target, Edit2, Check, X, Loader2,
   ArrowUpCircle, ArrowDownCircle,
 } from 'lucide-react';

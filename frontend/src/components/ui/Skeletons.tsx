@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
 // ── Base pulse block ──────────────────────────────────────────
-const Bone = ({ className }: { className?: string }) => (
-  <div className={clsx('bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse', className)} />
+const Bone = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <div className={clsx('bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse', className)} style={style} />
 );
 
 // ── KPI card skeleton ─────────────────────────────────────────

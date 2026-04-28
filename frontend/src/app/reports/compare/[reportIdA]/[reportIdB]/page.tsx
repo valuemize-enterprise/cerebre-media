@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { reportsApi } from '../../../../lib/api';
 import {
   ArrowUp, ArrowDown, Minus, Loader2, TrendingUp, TrendingDown,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import clsx from 'clsx';
+import { reportsApi } from '@/lib/api';
 
 const Delta = ({ v }: { v: number }) => {
   if (v === 0) return <Minus className="w-3 h-3 text-gray-400" />;

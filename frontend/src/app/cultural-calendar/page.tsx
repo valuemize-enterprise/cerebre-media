@@ -51,7 +51,7 @@ const MomentCard = ({ moment, onPlan }: { moment: any; onPlan: () => void }) => 
         </div>
         <div className="flex items-center gap-2">
           {moment.urgency && !isPast && (
-            <span className={clsx('text-xs px-2 py-0.5 rounded-full font-medium', URGENCY_COLORS[moment.urgency])}>
+            <span className={clsx('text-xs px-2 py-0.5 rounded-full font-medium', URGENCY_COLORS[moment.urgency as keyof typeof URGENCY_COLORS])}>
               {moment.urgency.replace('_', ' ')}
             </span>
           )}

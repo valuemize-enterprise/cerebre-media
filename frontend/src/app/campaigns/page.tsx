@@ -57,7 +57,7 @@ const KpiGauge = ({ label, actual, target, format: fmt = 'number' }: any) => {
 
 const CampaignCard = ({ campaign }: { campaign: any }) => {
   const type = CAMPAIGN_TYPES.find(t => t.id === campaign.campaign_type);
-  const status = STATUS_CONFIG[campaign.status] || STATUS_CONFIG.planning;
+  const status = STATUS_CONFIG[campaign.status as keyof typeof STATUS_CONFIG] || STATUS_CONFIG.planning;
   const daysLeft = campaign.end_date ? differenceInDays(new Date(campaign.end_date), new Date()) : null;
   const budgetPct = campaign.total_budget > 0 ? (campaign.spent / campaign.total_budget) * 100 : 0;
   const targets = typeof campaign.kpi_targets === 'string' ? JSON.parse(campaign.kpi_targets) : (campaign.kpi_targets || {});
